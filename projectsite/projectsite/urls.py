@@ -17,13 +17,20 @@ Including another URLconf
 from django.contrib import admin
 
 from django.urls import path
-from pokemon_app.views import HomePageView, TrainerList, PokemonCard, Collection 
+from pokemon_app.views import HomePageView, TrainerList, PokemonCard, Collection, TrainerCreateView, TrainerUpdateView, TrainerDeleteView, PokemonCreateView, PokemonUpdateView, PokemonDeleteView
 from pokemon_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePageView.as_view(), name='home'),
     path('trainer_list', TrainerList.as_view(), name='trainer-list'),
+    path('trainer_list/add', TrainerCreateView.as_view(), name='trainer-add'),
+    path('trainer_list/<pk>', TrainerUpdateView.as_view(), name='trainer-update'),
+    path('trainer_list/<pk>/delete',TrainerDeleteView.as_view(), name='trainer-delete'),
+    
     path('pokemon-card', PokemonCard.as_view(), name='pokemon-card'),
-    path('collection', Collection.as_view(), name='collection')
+    path('pokemon-card/add', PokemonCreateView.as_view(), name='pokemon-add'),
+    path('pokemon-card/<pk>', PokemonUpdateView.as_view(), name='pokemon-update'),
+    path('pokemon-card/<pk>/delete', PokemonDeleteView.as_view(), name='pokemon-delete'),
+    path('collection', Collection.as_view(), name='collection'),
 ]
