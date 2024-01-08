@@ -9,7 +9,14 @@ class TrainerForm(ModelForm):
         fields = "__all__"
 
 class PokemonCardForm(ModelForm):
-    Release_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    release_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     class Meta:
         model = PokemonCard
         fields = "__all__"
+
+class CollectionForm(ModelForm):
+    birthdate = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    class Meta:
+        model = Collection
+        fields = "__all__"
+
