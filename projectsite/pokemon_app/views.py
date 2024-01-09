@@ -34,7 +34,7 @@ class PokemonCardList(ListView):
     context_object_name = 'pokemoncard'
     template_name = "pokemon-cards.html"
     json_file_path = 'data\pokemon_data.json'
-    
+   
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
